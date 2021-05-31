@@ -1,3 +1,4 @@
 Collection of my freelance software development for biomedical and bioinformatic questions needing computing.
 
 These are best used as shell scripts since they were designed to take shell arguments. 
+for help run python programName -h
