@@ -2,3 +2,6 @@ Collection of my freelance software development for biomedical and bioinformatic
 
 These are best used as shell scripts since they were designed to take shell arguments. 
 for help run python programName -h
+
+Make sure to import biopack.py (modules file) into the same directory where you are running these scripts. git clone of this repo should address that. 
+
