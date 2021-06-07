@@ -56,3 +56,16 @@ def getSeqLen(sequence):
     '''Return sequence length.'''
 
     return len(sequence)
+
+def hammDist(seqA, seqB):
+    '''Returns the Hamming distance between two sequences of equal length'''
+
+    match = 0
+    try:
+        for i in range(len(seqA)):
+            if seqA[i] == seqB[i]:
+                match += 1
+    except:
+        print("Error: equal sequence lengths are required to compute Hamming distance.")
+    
+    return match
