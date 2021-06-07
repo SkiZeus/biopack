@@ -1,5 +1,5 @@
-#FOR SHELL USE : python kmerCount file "kmer"
-#HELP : python kmerCount -h
+#FOR SHELL USE : python3 kmerCount.py file "kmer"
+#HELP : python3 kmerCount.py -h
 
 import sys, argparse
 from biopack import formatFasta
