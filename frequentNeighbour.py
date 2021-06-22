@@ -1,1 +1,0 @@
-'''frequentKmer with specified hamm dist threshold allowed'''
