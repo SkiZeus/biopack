@@ -1,5 +1,13 @@
 import matplotlib.pyplot as pyplot
+import sys, argparse
 from biopack import formatFasta
+
+#Help documentation
+parser = argparse.ArgumentParser(
+    description='construct a skew plot: the difference between the total number of occurences of G and the total number of occurences of C in the first i nucletotides of a sequence.',
+    epilog='Written by Mateusz Wlodarski, https://github.com/Zeus-ski')
+parser.add_argument('file', type=str, default='', help='FILE')
+args = parser.parse_args()
 
 def countSkew(sequence, index):
     '''Calculate skew value of a sequence up to position index'''
@@ -60,6 +68,5 @@ def skewPlot(sequence):
     pyplot.tight_layout()
     pyplot.show()
 
-#demo:
-seq = "CATGGGCATCGGCCATACGCC"
-print(skewPlot(seq))
+file = sys.argv[1]
+print(skewPlot(file))

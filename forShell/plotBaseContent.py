@@ -1,5 +1,13 @@
 import matplotlib.pyplot as pyplot
+import sys, argparse
 from biopack import formatFasta
+
+#Help documentation
+parser = argparse.ArgumentParser(
+    description='Create basic bar plot that visualizes base content distribution of given sequence.',
+    epilog='Written by Mateusz Wlodarski, https://github.com/Zeus-ski')
+parser.add_argument('file', type=str, default='', help='FILE')
+args = parser.parse_args()
 
 def baseContentPlot(sequence):
     '''Create basic bar plot that visualizes base content distribution of given sequence.'''
@@ -15,11 +23,10 @@ def baseContentPlot(sequence):
     yvalues = [ i / len(seq) for i in list(content.values())]
     
     pyplot.bar(xvalues, yvalues, color=['red', 'blue', 'yellow', 'green'])
-    pyplot.title(sequence + " Base Content Profile")
+    pyplot.title(" Base Content Profile")
     pyplot.xlabel("DNA Base")
     pyplot.ylabel("% Distribution")
     pyplot.show()
 
-print(baseContentPlot("seq.fa"))
-#make bar plot
-#add shell capability
+file = sys.argv[1]
+print(baseContentPlot(file))
