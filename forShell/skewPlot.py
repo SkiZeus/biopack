@@ -23,7 +23,7 @@ def countSkew(sequence, index):
 
 def skewPlot(sequence): 
     '''construct a skew plot: the difference between the total number of occurences of G and the total number of occurences of C in the first i nucletotides of a sequence. Skew @ 0 = 0.'''
-    #sequence = formatFasta(sequence)
+    sequence = formatFasta(sequence)
 
     xvals = [i for i in range(len(sequence))]
     yvals = [countSkew(sequence, i) for i in range(len(sequence))]
