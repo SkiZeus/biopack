@@ -2,7 +2,7 @@
 #HELP : python neighbourCount.py -h
 
 import sys, argparse
-from biopack import formatFasta, hammDist
+from biopack import formatFasta, countMismatches
 
 #Help documentation
 parser = argparse.ArgumentParser(
@@ -20,15 +20,18 @@ def neighbourCount(sequence, kmer, dist):
 
     count = 0
     i = 0
-    while i < len(sequence):
+    while i < len(sequence) - len(kmer):
         block = sequence[i : i + len(kmer)]
-        if hammDist(block, kmer) >= dist:
+        if countMismatches(block, kmer) <= dist:
             count += 1
             i += len(kmer)
         else :
             i += 1
+    if countMismatches(sequence[-len(kmer) : ], kmer) <= dist:
+            count += 1
+            i += len(kmer)
     
-    return count
+    return f'{count} matches or neighbours of {kmer} were found with up to {dist} tolerated mismatch(es).'
 
-fileI, kmer, dist = sys.argv[1], sys.argv[2], int(sys.argv[3])
-print(neighbourCount(fileI, kmer, dist))
+file, kmer, dist = sys.argv[1], sys.argv[2], int(sys.argv[3])
+print(neighbourCount(file, kmer, dist))

@@ -72,4 +72,16 @@ def hammDist(seqA, seqB):
                 mismatch += 1
         return len(seqA) - mismatch
     
-    return match
+def countMismatches(seqA, seqB):
+    '''Returns the number of mismatches between two sequences of equal length'''
+
+    seqA, seqB = formatFasta(seqA), formatFasta(seqB)
+
+    mismatch = 0
+    if len(seqA) != len(seqB):
+        return "Error: equal sequence lengths are required to compute number of mismatches."
+    else:
+        for i in range(len(seqA)):
+            if seqA[i] != seqB[i]:
+                mismatch += 1
+        return mismatch

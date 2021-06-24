@@ -25,6 +25,12 @@ def frequentKmer(sequence, size):
         else :
             kmers[kmer] = 0
     
+    kmer = sequence[-size : ]
+    if kmer in kmers:
+        kmers[kmer] += 1
+    else :
+        kmers[kmer] = 0
+    
     best = max(kmers.values())
     result = ''
 
